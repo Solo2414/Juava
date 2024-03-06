@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content=""width=device-width, initial-scale="1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono">
+    <title>Juava Platform</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="burger">
+            <div class="layer1"></div>
+            <div class="layer2"></div>
+            <div class="layer3"></div>
+        </div>
+        <img src="Lugo.png" alt="">
+        <div class="logo"> 
+            
+            <span class="logo-text">Juava<span style="color: #14aeeb; font-size: 1.1em;">Platform</span></span>
+        </div>
+
+        <div class="menubar">
+            <ul class="list">
+                <li class="list-items"><a href="#">HOME</a></li>
+                <li class="list-items"><a href="#">FLASHCARD</a></li>
+                <li class="list-items"><a href="#">QUIZ</a></li>
+                <li class="list-items"><a href="#"></a></li>
+            </ul>
+        </div>
+
+        <div class="user">
+            <i class="fa fa-user-circle-o fa-2x"></i>
+            <div class="number-of-items"><span class="noi">0</span></div>
+        </div>
+    </nav>
+
+    
+
+    <section class="section1">
+      <section>
+        <div></div>
+        <button id="signupBtn">Sign Up</button>
+        <button id="loginBtn">Log In</button>
+    </section>
+        <div class="banner">
+            <h1>TO START CLICK HERE!</h1>
+            <a href="file:///C:/Users/Daniel/HTML%20CODES/Juava%20quiz/index.html">START NOW</a>
+        </div>
+    </section>
+
+    <!-- Sign Up Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signupForm">
+            
+          <label for="username">Username:</label>
+          <input type="text" id="username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" required>
+
+          <button type="button" onclick="submitSignup()">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Log In</h2>
+        <form id="loginForm">
+          <label for="loginUsername">Username:</label>
+          <input type="text" id="loginUsername" required>
+
+          <label for="loginPassword">Password:</label>
+          <input type="password" id="loginPassword" required>
+
+          <button type="button" onclick="submitLogin()">Log In</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Other sections (Dashboard, Create, Study, Community) go here -->
+
+  </main>
+
+  
+
+  <script>
+    function closeModal(modalId) {
+      var modal = document.getElementById(modalId);
+      modal.style.display = 'none';
+    }
+
+    function submitSignup() {
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      if (username && password) {
+        alert('Sign-up successful!');
+        closeModal('signupModal');
+      } else {
+        alert('Please fill in all fields.');
+      }
+    }
+
+    function submitLogin() {
+      var loginUsername = document.getElementById('loginUsername').value;
+      var loginPassword = document.getElementById('loginPassword').value;
+
+      // Perform login validation (replace this with server-side validation)
+      if (loginUsername === username && loginPassword === password) {
+        alert('Login successful!');
+        closeModal('loginModal');
+      } else {
+        alert('Invalid username or password.');
+      }
+    }
+
+    var signupModal = document.getElementById('signupModal');
+    var loginModal = document.getElementById('loginModal');
+    var signupBtn = document.getElementById('signupBtn');
+    var loginBtn = document.getElementById('loginBtn');
+    var signupClose = document.getElementsByClassName('close')[0];
+    var loginClose = document.getElementsByClassName('close')[1];
+
+    signupBtn.onclick = function () {
+      signupModal.style.display = 'block';
+    }
+
+    loginBtn.onclick = function () {
+      loginModal.style.display = 'block';
+    }
+
+    signupClose.onclick = function () {
+      closeModal('signupModal');
+    }
+
+    loginClose.onclick = function () {
+      closeModal('loginModal');
+    }
+
+    window.onclick = function (event) {
+      if (event.target == signupModal) {
+        closeModal('signupModal');
+      } else if (event.target == loginModal) {
+        closeModal('loginModal');
+      }
+    }
+  </script>
+
+
+    <script type="test/javascript" src="app.js"></script>
+    <script type="text/javascript" src="products.json"></script>
+</body>
+</html>
